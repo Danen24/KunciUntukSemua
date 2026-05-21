@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Portal - KUS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+    
+    <div class="auth-container animate-fade-up">
+        <div class="auth-header">
+            <span class="auth-logo">🔑</span>
+            <h2>Portal Masuk KUS</h2>
+            <p class="auth-subtitle">Sistem Manajemen Kunci Digital Terpadu</p>
+        </div>
+
+        <div id="login-form">
+            <div class="input-group-auth">
+                <label>Username Account</label>
+                <input type="text" id="login-username" placeholder="Masukkan username">
+            </div>
+            <div class="input-group-auth">
+                <label>Password Akun</label>
+                <input type="password" id="login-password" placeholder="Masukkan password">
+            </div>
+            <button class="btn-auth-submit btn-login-gradient" onclick="prosesLogin()">Masuk ke Dashboard 🔓</button>
+            <p class="auth-toggle">Belum terdaftar? <a href="#" onclick="toggleAuthForm()">Buat Akun Baru</a></p>
+        </div>
+
+        <div id="register-form" style="display: none;">
+            <div class="input-group-auth">
+                <label>Username</label>
+                <input type="text" id="reg-username" placeholder="Buat nama user">
+            </div>
+            <div class="input-group-auth">
+                <label>Password Rahasia</label>
+                <input type="password" id="reg-password" placeholder="Buat kata sandi">
+            </div>
+            <div class="input-group-auth">
+                <label>Peran Otoritas</label>
+                <select id="reg-role">
+                    <option value="Santri">Santri</option>
+                    <option value="SOD">Petugas SOD (Bawahan)</option>
+                    <option value="Guru">Guru (Atasan)</option>
+                </select>
+            </div>
+            <button class="btn-auth-submit btn-register-gradient" onclick="prosesRegister()">Daftarkan Akun ✨</button>
+            <p class="auth-toggle">Sudah ada akun? <a href="#" onclick="toggleAuthForm()">Login Kembali</a></p>
+        </div>
+        
+        <div class="auth-footer-back">
+            <a href="index.html">← Kembali ke Beranda Utama</a>
+        </div>
+    </div>
+
+    <script>
+        const defaultUsers = [{ username: "guru", password: "123", role: "Guru", isMember: false }];
+        let users = JSON.parse(localStorage.getItem('pesantren_users')) || defaultUsers;
+        localStorage.setItem('pesantren_users', JSON.stringify(users));
+
+        function toggleAuthForm() {
+            const loginF = document.getElementById('login-form');
+            const regF = document.getElementById('register-form');
+            if (loginF.style.display === 'none') {
+                loginF.style.display = 'block';
+                regF.style.display = 'none';
+            } else {
+                loginF.style.display = 'none';
+                regF.style.display = 'block';
+            }
+        }
+
+        function prosesRegister() {
+            const user = document.getElementById('reg-username').value.trim();
+            const pass = document.getElementById('reg-password').value.trim();
+            const role = document.getElementById('reg-role').value;
+
+            if(!user || !pass) return alert("Isi semua data!");
+            if(users.some(u => u.username.toLowerCase() === user.toLowerCase())) return alert("Username sudah terpakai!");
+
+            users.push({ username: user, password: pass, role: role, isMember: false, memberMethod: "" });
+            localStorage.setItem('pesantren_users', JSON.stringify(users));
+            alert("Pendaftaran Berhasil!");
+            toggleAuthForm();
+        }
+
+        function prosesLogin() {
+            const user = document.getElementById('login-username').value.trim();
+            const pass = document.getElementById('login-password').value.trim();
+            const validUser = users.find(u => u.username === user && u.password === pass);
+
+            if(validUser) {
+                localStorage.setItem('current_user', JSON.stringify(validUser));
+                if(validUser.role === 'Santri') window.location.href = 'santri.html';
+                else if(validUser.role === 'SOD') window.location.href = 'sod.html';
+                else if(validUser.role === 'Guru') window.location.href = 'guru.html';
+            } else {
+                alert("Username/Password Salah!");
+            }
+        }
+    </script>
+</body>
+</html>

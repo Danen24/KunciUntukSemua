@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Guru - KUS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar role-guru-sidebar">
+        <div class="sidebar-brand"><span>👨‍🏫</span> KUS Otoritas</div>
+        <div class="sidebar-user">
+            <div class="user-avatar">👑</div>
+            <div class="user-detail">
+                <p id="user-logged-in-guru">Memuat...</p>
+                <span>Pengawas Utama</span>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#" class="menu-item active">📈 Panel Kontrol Utama</a>
+        </div>
+        <button onclick="prosesLogout()" class="btn-logout-sidebar">Keluar Sistem ➔</button>
+    </aside>
+
+    <main class="main-content">
+        <div class="dashboard-header-title">
+            <h2>Pusat Kontrol & Otoritas Pemantauan</h2>
+            <p>Akses audit sirkulasi keuangan kas masuk serta validasi kinerja sirkulasi kunci.</p>
+        </div>
+
+        <div class="kas-box-modern animate-fade-up">
+            <div class="kas-icon">💰</div>
+            <div class="kas-text">
+                <span>Total Pendapatan Kas KUS (Membership Cash & Debit)</span>
+                <h2 id="guru-kas">Rp 0</h2>
+            </div>
+        </div>
+
+        <div class="management-box-modern">
+            <h3 style="font-size:16px;">➕ Registrasi Ruangan Baru</h3>
+            <div class="input-group-modern">
+                <input type="text" id="input-kunci-baru" placeholder="Contoh: Gedung Laboratorium Bahasa Baru">
+                <button class="btn-submit-modern" onclick="tambahKunciOlehGuru()">Tambahkan Kunci</button>
+            </div>
+        </div>
+
+        <div class="content-box-dashboard">
+            <div class="table-responsive">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Kunci</th>
+                            <th>Status Kunci</th>
+                            <th>Peminjam</th>
+                            <th>Petugas SOD</th>
+                            <th>Catatan Histori Aplikasi</th>
+                            <th>Otorisasi Atasan</th>
+                            <th>Tindakan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guru-table-body"></tbody>
+                </table>
+            </div>
+            <div style="margin-top: 25px; text-align: right;">
+                <button class="btn-reset-sistem" onclick="resetSistem()">⚠ Reset Seluruh Database Sistem</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
