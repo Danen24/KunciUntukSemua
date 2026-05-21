@@ -26,7 +26,7 @@
     <main class="main-content">
         <div class="dashboard-header-title">
             <h2>Pusat Kontrol & Otoritas Pemantauan</h2>
-            <p>Akses audit sirkulasi keuangan kas masuk serta validasi kinerja sirkulasi kunci.</p>
+            <p>Akses manajemen kontrol edit/hapus kelas, audit sirkulasi kas keuangan, serta delegasi tugas SOD.</p>
         </div>
 
         <div class="kas-box-modern animate-fade-up">
@@ -38,10 +38,10 @@
         </div>
 
         <div class="management-box-modern">
-            <h3 style="font-size:16px;">➕ Registrasi Ruangan Baru</h3>
+            <h3 style="font-size:16px;">➕ Registrasi Ruangan / Kelas Baru</h3>
             <div class="input-group-modern">
-                <input type="text" id="input-kunci-baru" placeholder="Contoh: Gedung Laboratorium Bahasa Baru">
-                <button class="btn-submit-modern" onclick="tambahKunciOlehGuru()">Tambahkan Kunci</button>
+                <input type="text" id="input-kunci-baru" placeholder="Contoh: Ruang Kelas XI-A Unggulan">
+                <button class="btn-submit-modern" onclick="tambahKunciOlehGuru()">Tambahkan Kelas</button>
             </div>
         </div>
 
@@ -50,13 +50,13 @@
                 <table class="modern-table">
                     <thead>
                         <tr>
-                            <th>Nama Kunci</th>
-                            <th>Status Kunci</th>
-                            <th>Peminjam</th>
-                            <th>Petugas SOD</th>
-                            <th>Catatan Histori Aplikasi</th>
+                            <th>Nama Kunci / Ruang</th>
+                            <th>Status Sirkulasi</th>
+                            <th>Santri Peminjam</th>
+                            <th>SOD Lapangan</th>
+                            <th>Log Histori Terkini</th>
                             <th>Otorisasi Atasan</th>
-                            <th>Tindakan</th>
+                            <th style="min-width: 140px;">Tindakan Guru</th>
                         </tr>
                     </thead>
                     <tbody id="guru-table-body"></tbody>
