@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Portal - KUS</title>
+    <title>Login - KUS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="auth-body">
@@ -11,7 +11,7 @@
     <div class="auth-container animate-fade-up">
         <div class="auth-header">
             <span class="auth-logo"></span>
-            <h2>Portal Masuk KUS</h2>
+            <h2> Masuk KUS</h2>
             <p class="auth-subtitle">Sistem Manajemen Kunci Digital Terpadu</p>
         </div>
 
@@ -24,7 +24,7 @@
                 <label>Password Akun</label>
                 <input type="password" id="login-password" placeholder="Masukkan password">
             </div>
-            <button class="btn-auth-submit btn-login-gradient" onclick="prosesLogin()">Masuk ke Dashboard   Q</button>
+            <button class="btn-auth-submit btn-login-gradient" onclick="prosesLogin()">Masuk ke Dashboard</button>
             <p class="auth-toggle">Belum terdaftar? <a href="#" onclick="toggleAuthForm()">Buat Akun Baru</a></p>
         </div>
 
@@ -41,11 +41,11 @@
                 <label>Peran Otoritas</label>
                 <select id="reg-role">
                     <option value="Santri">Santri</option>
-                    <option value="SOD">Petugas SOD (Bawahan)</option>
+
                     <option value="Guru">Guru (Atasan)</option>
                 </select>
             </div>
-            <button class="btn-auth-submit btn-register-gradient" onclick="prosesRegister()">Daftarkan Akun ✨</button>
+            <button class="btn-auth-submit btn-register-gradient" onclick="prosesRegister()">Daftarkan Akun </button>
             <p class="auth-toggle">Sudah ada akun? <a href="#" onclick="toggleAuthForm()">Login Kembali</a></p>
         </div>
         
@@ -69,7 +69,7 @@
                 loginF.style.display = 'none';
                 regF.style.display = 'block';
             }
-        }
+        }   
 
         function prosesRegister() {
             const user = document.getElementById('reg-username').value.trim();

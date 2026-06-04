@@ -73,7 +73,7 @@ footer { text-align: center; padding: 30px; background: #0f172a; color: #94a3b8;
 .sidebar { width: 260px; color: white; padding: 30px 20px; display: flex; flex-direction: column; position: fixed; height: 100vh; left: 0; top: 0; z-index: 10; }
 .role-santri-sidebar { background: linear-gradient(180deg, #064e3b 0%, #022c22 100%); }
 .role-sod-sidebar { background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%); }
-.role-guru-sidebar { background: linear-gradient(180deg, #111827 0%, #030712 100%); }
+.role-guru-sidebar { background: linear-gradient(180deg, #111827 0%, #030712 100%);align-items: right; }
 .sidebar-brand { font-size: 22px; font-weight: 800; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .sidebar-user { display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.06); padding: 12px; border-radius: 10px; margin-bottom: 25px; }
 .user-avatar { font-size: 24px; }
